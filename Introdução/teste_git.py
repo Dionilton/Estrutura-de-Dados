@@ -1,1 +1,0 @@
-print('editei a parada aqui')
