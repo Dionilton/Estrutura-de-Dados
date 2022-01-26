@@ -32,10 +32,12 @@ def parChecker(string):
                 s.pop()
         index += 1
         
-        if balanced and s.isEmpty():
-            return True
-        else:
-            return False
+    if balanced and s.isEmpty():
+        return True
+    else:
+        return False
+        
+
         
 print(parChecker('((()))'))
 print(parChecker('(()'))
