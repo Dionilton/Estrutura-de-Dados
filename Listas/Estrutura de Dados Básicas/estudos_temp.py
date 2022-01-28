@@ -22,18 +22,21 @@ x = list(x)
 ope = "+-*/"
 let = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 NUM = "0123456789"
-
+saida = ""
 par_stack = Stack()
 ope_stack = Stack()
 
 ind = 0
 for i in x:
-    if i == "(":
+    if i in let:
+        saida += i
+    elif i == "(":
         par_stack.push(i)
-    if i in ope:
+    elif i in ope:
         ope_stack.push(i)
-    if i == ")":
-        ope_stack.pop()
+    elif i == ")":
         par_stack.pop()
-        x[ind] = ope_stack.pop()
-    ind += 1
+        saida += ope_stack.pop()
+        
+print(saida)
+        
