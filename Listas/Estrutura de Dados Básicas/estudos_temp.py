@@ -28,7 +28,7 @@ ope_stack = Stack()
 
 ind = 0
 for i in x:
-    if i in let i in num:
+    if i in let or i in num:
         saida += i
     elif i == "(":
         par_stack.push(i)
@@ -39,4 +39,5 @@ for i in x:
         saida += ope_stack.pop()
         
 print(saida)
-        
+# caso de teste: (((A+B)*C)-((D-E)*(F+G)))
+# saida esperada: AB+C*DE-FG+*-
