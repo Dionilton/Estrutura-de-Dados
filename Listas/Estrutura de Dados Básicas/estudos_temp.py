@@ -17,7 +17,6 @@ class Stack:
     def size(self):
         return len(self.items)
     
-<<<<<<< HEAD
 x = input()
 x = list(x)
 ope = "+-*/"
@@ -38,31 +37,3 @@ for i in x:
         par_stack.pop()
         x[ind] = ope_stack.pop()
     ind += 1
-
-print(x)
-=======
-def parChecker(string):
-    s = Stack()
-    balanced = True
-    index = 0
-    while index < len(string) and balanced:
-        simbolo = string[index]
-        if simbolo == '(':
-            s.push(simbolo)
-        else:
-            if s.isEmpty():
-                balanced = False
-            else:
-                s.pop()
-        index += 1
-        
-    if balanced and s.isEmpty():
-        return True
-    else:
-        return False
-        
-
-        
-print(parChecker('((()))'))
-print(parChecker('(()'))
->>>>>>> bccfc36a681477464991324b70837de62d67673a
