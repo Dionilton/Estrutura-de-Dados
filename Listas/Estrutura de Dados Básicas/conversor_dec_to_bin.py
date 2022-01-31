@@ -17,27 +17,16 @@ class Stack:
     def size(self):
         return len(self.items)
     
-x = input()
-x = list(x)
-ope = "+-*/"
-let = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-num = "0123456789"
-saida = ""
-par_stack = Stack()
-ope_stack = Stack()
-
-ind = 0
-for i in x:
-    if i in let or i in num:
-        saida += i
-    elif i == "(":
-        par_stack.push(i)
-    elif i in ope:
-        ope_stack.push(i)
-    elif i == ")":
-        par_stack.pop()
-        saida += ope_stack.pop()
-        
-print(saida)
-# caso de teste: (((A+B)*C)-((D-E)*(F+G)))
-# saida esperada: AB+C*DE-FG+*-
+def decToBin(dec):
+    s = Stack()
+    
+    while dec > 0:
+        s.push(dec % 2)
+        dec = dec // 2
+    
+    bin = ''
+    
+    while not s.isEmpty():
+        bin += str(s.pop())
+    
+    return bin
