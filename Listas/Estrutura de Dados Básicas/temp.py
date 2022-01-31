@@ -20,5 +20,21 @@ class Deque:
     def size(self):
         return len(self.items)
     
-def isPalindromo():
+def isPalindromo(string):
+    d = Deque()
     
+    for c in string:
+        d.addRear(c)
+    
+    stillEqual = True
+    
+    while d.size() > 1 and stillEqual:
+        first = d.removeFront()
+        last = d.removeRear()
+        if first != last:
+            stillEqual = False
+            
+    return stillEqual
+
+print(isPalindromo("lsdkjfskf"))
+print(isPalindromo("radar"))
