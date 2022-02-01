@@ -24,16 +24,19 @@ string = input()
 
 deque = Deque()
 saida = ''
-alphabeta = 'abcdefghijklmnopqrstuvwxyz '
+alphabeta = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ <>:?,.;/°\|!@#$%¨&()-/'
 numeros = '0123456789'
 
 
 for i in string:
-    if i in alphabeto:
+    if i in alphabeta:
         deque.addFront(i)
     elif i in numeros:
         deque.addRear(i)
-    elif i == '*':
-        saida += deque.removeFront()
-    elif i == '+':
-        saida += deque.removeRear()
+    if not deque.isEmpty():
+        if i == '*':
+            saida += deque.removeFront()
+        elif i == '+':
+            saida += deque.removeRear()
+        
+print(saida)
