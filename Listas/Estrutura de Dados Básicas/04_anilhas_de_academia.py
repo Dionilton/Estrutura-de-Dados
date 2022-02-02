@@ -31,7 +31,7 @@ total_peso = 0
 
 a = int(input())
 
-while True:
+while True and not s.isEmpty():
     r = int(s.pop())
     retiradas += 1
     total_peso += r
