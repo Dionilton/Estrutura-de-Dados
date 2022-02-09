@@ -16,8 +16,20 @@ class Node:
         self.next = newnext
 
 class UnorderedList:
-    def __inti__(self):
+    def __init__(self):
         self.head = None
+    
+    def __str__(self):
+        tmp = self.head
+        lstr = ''
+        while tmp != None:
+            lstr += str(tmp.data) + ' '
+            tmp = tmp.getNext()
+            
+        return lstr
+        
+    def isEmpty(self):
+        return self.head == None
         
     def add(self, item):
         temp = Node(item)
@@ -58,3 +70,14 @@ class UnorderedList:
             self.head = current.getNext()
         else:
             previous.setNext(currentNext())
+            
+            
+def inverterLista(L):
+    last = False
+    current = self.head
+    while not last:
+        if current.getNext() == None:
+            
+    
+    
+            
