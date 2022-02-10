@@ -73,33 +73,28 @@ class UnorderedList:
             
            
 def inverterLista(L : UnorderedList):
-    x = L.size()
-    head = None
-    for i in range(x - 1):
-        current = L.head
-        previus = None
-        if(i == x - 2):
-            current.setNext(None)
-            L.head = head
-            break
-        for j in range(x - i):
-            if i == 0 and j == x - i - 1:
-                head = current.getNext()
-            previus = current
-            if j != x - i - 1:
-                current = current.getNext()
-        print(f"{L}")
-        current.setNext(previus)
+    current = L.head
+    lista = []
+    while current != None:
+        lista.append(current.getData())
+        current = current.getNext()
+        
+    current = L.head
+    A = UnorderedList()
+    for i in lista:
+        A.add(i)
+    
+    L = A
     return L
-
+    
 L = UnorderedList()
-L.add(1)
-L.add(2)
-L.add(3)
-L.add(4)
-L.add(5)
+L.add(564)
+L.add(98744)
+L.add(189)
+L.add(-25)
 print(f'Lista antes: {L}')
 L = inverterLista(L)
 print(f'Lista depois: {L}')
+
 
 
