@@ -70,22 +70,23 @@ class UnorderedList:
             self.head = current.getNext()
         else:
             previous.setNext(currentNext())
-            
-           
-def inverterLista(L : UnorderedList):
-    current = L.head
-    lista = []
-    while current != None:
-        lista.append(current.getData())
-        current = current.getNext()
-        
-    current = L.head
-    A = UnorderedList()
-    for i in lista:
-        A.add(i)
     
-    L = A
-    return L
-
-
+    def append(self, item):
+        current = self.head
+        while True:
+            b = corrent.getNext()
+            if b == None:
+                x = Node(item)
+                corrent.setNext(x)
+                break
+            corrent = corrent.getNext()
+            
+L = UnorderedList()
+L.add(1)
+L.add(2)
+L.add(3)
+L.add(4)
+L.add(5)
+L.append(6)
+print(f'Lista antes: {L}')
 
