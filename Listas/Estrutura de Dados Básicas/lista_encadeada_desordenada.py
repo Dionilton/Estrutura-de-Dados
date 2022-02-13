@@ -69,20 +69,23 @@ class UnorderedList:
         if previous == None:
             self.head = current.getNext()
         else:
-            previous.setNext(currentNext())
+            previous.setNext(current.getNext())
     
     def append(self, item):
-        temp = Node(item)
-        current = self.head
-        previous = None
-        found = False
-        while not found:
-            if current == None:
-                previous.setNext(temp)
-                found = True
-            else:
-                previous = current
-                current = current.getNext()
+        if self.size() == 0:
+            self.add(item)
+        else:
+            temp = Node(item)
+            current = self.head
+            previous = None
+            found = False
+            while not found:
+                if current == None:
+                    previous.setNext(temp)
+                    found = True
+                else:
+                    previous = current
+                    current = current.getNext()
                 
     def index(self, item):
         count = 0
@@ -115,7 +118,7 @@ class UnorderedList:
         if pos == 0:
             ret = self.head.getData()
             self.head = self.head.getNext()
-        elif pos == self.size() - 1:
+        elif pos == self.size():
             return self.pop()
         else:
             current = self.head
@@ -130,12 +133,18 @@ class UnorderedList:
         return ret
           
     def pop(self):
-        current = self.head
-        previous = None
-        for i in range(self.size() - 2):
-            previous = current
-            current = current.getNext()
-        ret = current.getNext().getData()
-        current.setNext(None)
+        if self.size() == 1:
+            ret = self.head.getData()
+            self.head = None
+        else:
+            current = self.head
+            previous = None
+            for i in range(self.size() - 2):
+                previous = current
+                current = current.getNext()
+            ret = current.getNext().getData()
+            current.setNext(None)
         
         return ret
+    
+L = UnorderedList()

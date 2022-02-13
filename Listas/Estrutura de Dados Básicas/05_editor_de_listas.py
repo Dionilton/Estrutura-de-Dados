@@ -69,20 +69,23 @@ class UnorderedList:
         if previous == None:
             self.head = current.getNext()
         else:
-            previous.setNext(currentNext())
+            previous.setNext(current.getNext())
     
     def append(self, item):
-        temp = Node(item)
-        current = self.head
-        previous = None
-        found = False
-        while not found:
-            if current == None:
-                previous.setNext(temp)
-                found = True
-            else:
-                previous = current
-                current = current.getNext()
+        if self.size() == 0:
+            self.add(item)
+        else:
+            temp = Node(item)
+            current = self.head
+            previous = None
+            found = False
+            while not found:
+                if current == None:
+                    previous.setNext(temp)
+                    found = True
+                else:
+                    previous = current
+                    current = current.getNext()
                 
     def index(self, item):
         count = 0
@@ -115,7 +118,7 @@ class UnorderedList:
         if pos == 0:
             ret = self.head.getData()
             self.head = self.head.getNext()
-        elif pos == self.size() - 1:
+        elif pos == self.size():
             return self.pop()
         else:
             current = self.head
@@ -130,12 +133,77 @@ class UnorderedList:
         return ret
           
     def pop(self):
-        current = self.head
-        previous = None
-        for i in range(self.size() - 2):
-            previous = current
-            current = current.getNext()
-        ret = current.getNext().getData()
-        current.setNext(None)
+        if self.size() == 1:
+            ret = self.head.getData()
+            self.head = None
+        else:
+            current = self.head
+            previous = None
+            for i in range(self.size() - 2):
+                previous = current
+                current = current.getNext()
+            ret = current.getNext().getData()
+            current.setNext(None)
         
         return ret
+    
+L = UnorderedList()
+
+
+
+while True:
+    n = input().split()
+    
+    if n[0] == 'X':
+        break
+    
+    elif n[0] == 'I':
+        L.add(int(n[1]))
+        
+    elif n[0] == 'F':
+        L.append(int(n[1]))
+        
+    elif n[0] == 'P':
+        print(L.pop())
+        
+    elif n[0] == 'D':
+        print(L.popInd(0))
+        
+    elif n[0] == 'V':
+        count = 0
+        while L.search(int(n[1])):
+            L.remove(int(n[1]))
+            count += 1
+        print(count)
+        
+    elif n[0] == 'E':
+        print(L.popInd(int(n[1]) - 1))
+        
+    elif n[0] == 'T':
+        current = L.head
+        while True:
+            if current.getData() == int(n[1]):
+                current.setData(int(n[2]))
+                break
+            else:
+                current = current.getNext()
+                
+    elif n[0] == 'C':
+        current = L.head
+        count = 0
+        while current != None:
+            if current.getData() == int(n[1]):
+                count += 1
+            current = current.getNext()
+        print(count)
+    
+    #print(f'A lista atual é: {L}')
+        
+    
+print()
+
+current = L.head
+
+while current != None:
+    print(current.getData())
+    current = current.getNext()
