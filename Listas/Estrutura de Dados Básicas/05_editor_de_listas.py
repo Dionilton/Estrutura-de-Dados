@@ -72,21 +72,78 @@ class UnorderedList:
             previous.setNext(currentNext())
     
     def append(self, item):
+        temp = Node(item)
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current == None:
+                previous.setNext(temp)
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+                
+    def index(self, item):
+        count = 0
         current = self.head
         while True:
-            b = corrent.getNext()
-            if b == None:
-                x = Node(item)
-                corrent.setNext(x)
+            if current.getData() == item:
                 break
-            corrent = corrent.getNext()
-            
+            else:
+                current = current.getNext()
+                count += 1
+        return count
+    
+    def insert(self, pos, item):
+        if pos == 0:
+            self.add(item)
+        else:
+            current = self.head
+            previous = None
+            for i in range(pos):
+                previous = current
+                current = current.getNext()
+                
+            temp_node = Node(item)
+            temp = current
+            previous.setNext(temp_node)
+            previous = previous.getNext()
+            previous.setNext(temp)
+    
+    def pop(self, pos):
+        if pos == 0:
+            self.head = self.head.getNext()
+        elif pos == self.size() - 1:
+            self.pop()
+        else:
+            current = self.head
+            previous = None
+            for i in range(pos):
+                previous = current
+                current = current.getNext()
+            temp = current.getNext()
+            previous.setNext(temp)
+    '''      
+    def pop(self):
+        current = self.head
+        previous = None
+        while current != None:
+            previous = current
+            current = current.getNext()
+            print(current.getData)
+        ret = current.getData()
+        previous.setNext = None
+        
+        return ret
+        
+    '''
 L = UnorderedList()
 L.add(1)
 L.add(2)
 L.add(3)
 L.add(4)
 L.add(5)
-L.append(6)
+print(L.pop)
 print(f'Lista antes: {L}')
 
