@@ -38,5 +38,6 @@ for i in range(len(janela)):
         max = janela[i]
         if i == k - 1:
             saida.append(max)
-
-
+    else:
+        d.removeRear()
+        
