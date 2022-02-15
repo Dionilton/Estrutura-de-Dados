@@ -40,4 +40,9 @@ for i in range(len(janela)):
             saida.append(max)
     else:
         d.removeRear()
+
+
+        
+        
+        
         
