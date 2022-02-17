@@ -150,9 +150,11 @@ class UnorderedList:
 L = UnorderedList()
 
 n_linhas, n_colunas = map(int, input().split())
-chaves = input().split()
-for i in range(len(chaves)):
-    L.append(chaves[i])
+
+if n_colunas != 0:
+    chaves = input().split()
+    for i in range(len(chaves)):
+        L.append(chaves[i])
 
 matrix = [''] * n_linhas
 
@@ -183,28 +185,11 @@ for i in matrix:
         print(saida)
     count += 1
 
-    
+"""
+Corrigir o caso que as listas não são ordenadas
+esse código funciona como se as listas de chaves fossem sempre ordenadas
+como a saida considera a ordem de entrada
+deve-se alterar boa parte da lógica do código
+mesmo ele passando em 70% dos casos de teste
 
-'''
-current = L.head
-
-for i in range(L.size()):
-    ind = current.getData() % n_linhas
-    matrix[ind].append(current.getData())
-    current = current.getNext()
-
-for i in range(n_linhas):
-    if matrix[i] == []:
-        print(f'i - [x]')
-    else:
-        for j in range(len(matrix[i])):
-            if i == 0:
-                saida = f'{i} - {matrix[i][0]}'
-            else:
-                saida += f' -> {matrix[i][j]}'
-        print(saida)
-        
-    
-'''
-    
-
+"""
