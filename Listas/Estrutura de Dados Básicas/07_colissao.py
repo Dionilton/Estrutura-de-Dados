@@ -165,9 +165,9 @@ while current != None:
     else:
         ind = int(current.getData()) % n_linhas
         if len(matrix[ind]) == 0:
-            matrix[ind] += current.getData() + ' '
+            matrix[ind] += ' ' + current.getData() + ' '
         else:
-            matrix[ind] += ' ' + current.getData()
+            matrix[ind] += ' ' + current.getData() + ' '
     current = current.getNext()
 
 count = 0
@@ -184,21 +184,3 @@ for i in matrix:
                 saida += f' -> {x[i]}'
         print(saida)
     count += 1
-    
-    
-'''
-caso de teste:
-2 5
-200 10 9 5 1
-
-esperado:
-0 - 200 -> 10
-1 - 9 -> 5 -> 1
-
-minha saida:
-1 - 9 -> 51
-
-so concerta isso mermão, e tomou penalidade de 0.1 da nota total da quetão
-pra ficar mais esperto
-
-'''
