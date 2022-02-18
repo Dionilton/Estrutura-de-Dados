@@ -184,12 +184,21 @@ for i in matrix:
                 saida += f' -> {x[i]}'
         print(saida)
     count += 1
+    
+    
+'''
+caso de teste:
+2 5
+200 10 9 5 1
 
-"""
-Corrigir o caso que as listas não são ordenadas
-esse código funciona como se as listas de chaves fossem sempre ordenadas
-como a saida considera a ordem de entrada
-deve-se alterar boa parte da lógica do código
-mesmo ele passando em 70% dos casos de teste
+esperado:
+0 - 200 -> 10
+1 - 9 -> 5 -> 1
 
-"""
+minha saida:
+1 - 9 -> 51
+
+so concerta isso mermão, e tomou penalidade de 0.1 da nota total da quetão
+pra ficar mais esperto
+
+'''
