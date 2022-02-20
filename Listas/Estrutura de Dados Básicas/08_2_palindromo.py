@@ -21,52 +21,43 @@ class Deque:
         return len(self.items)
     
 
-def isPalindromo(palavra: Deque()):
-    iguais = True
-    
-    while palavra.size() > 1 and iguais:
-        primeiro = palavra.removeFront()
-        ultimo = palavra.removeRear()
-        if primeiro != ultimo:
-            iguais = False
-    return iguais
+def isPalindromo(palavra):
+    if palavra == palavra[::-1]:
+        return True
+    else:
+        return False
 
 palavras = input().split()
 
 for i in palavras:
-    n = 3
-    palin_01 = False
-    palin_02 = False
-    while len(i) - n > 0 or not palin_01 and not palin_02:
-        d = Deque()
-        for j in range(n):
-            d.addFront(i[j])
-        if isPalindromo(d):
-            palin_01 = True
-        ind = n
-        for j in range(len(i) - n):
-            d.removeRear()
-            d.addFront(i[ind])
-            if isPalindromo(d) and palin_01:
-                palin_02 = True
-                palin = True
+    if not isPalindromo(i):
+        p_01 = False
+        p_02 = False
+        n = 3
+        l = []
+        while len(i) - n > 0:
+            d = Deque()
+            for j in range(n):
+                d.addFront(i[j])
+                l.append(i[j])
+            if isPalindromo(l):
+                p_01 = True
+            ind = n
+            for j in range(len(i) - n):
+                d.removeRear()
+                d.addFront(i[ind])
+                l = []
+                for k in range(d.size()):
+                    l.append(d.items[k])
+                if isPalindromo(l) and p_01 == True:
+                    p_02 = True
+                    break
+                elif isPalindromo(l) and not p_01:
+                    p_01 = True
+                ind += 1
+            n += 1
+            if p_01 and p_02:
+                print(i)
                 break
-            elif isPalindromo(d) and not palin_01:
-                palin_01 = True
-            ind += 1
-        n += 1
-        if palin:
-            print(i)
-            break
-    
-    
-
-
-"""
-Dar um split na entrada
-depois faz um for interando a lista do split
-analisa item por item
-se a palavrar for 2-palíndromo (parte mais "difícil", validar se a palavra é 2-palíndromo)
-retorna/print a palavra
-
-"""
+        else:
+            continue
