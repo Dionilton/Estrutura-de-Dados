@@ -21,6 +21,7 @@ class Simulacao_Batalha:
         return self.id_geral
     
     def executar_simulacao(self):
+        
         for t in range(self.turnos):
             
             print('---------------------------------')
@@ -32,11 +33,12 @@ class Simulacao_Batalha:
                 
                 self.f_fighters.enfileirar(fighter)
                 print(f'- fighter_id: {fighter.get_id()} entrou em formação.')
-            
+                
             print(f'- {self.f_fighters.tamanho()} fighters para atacar.')
             
             if self.f_fighters.tamanho() == 0:
                 continue
+            
             fighter = self.f_fighters.desenfileirar()
             print(f'- <LIDER> {fighter}')
             
@@ -44,7 +46,7 @@ class Simulacao_Batalha:
                 print('<<<<<<< TEMOS UM JEDI >>>>>>>')
                 
             #turno Death Star
-            print('\Turno - Death Star')
+            print('\nTurno - Death Star')
             print(f'- {self.death_star}')
             
             disparos = self.death_star.disparar()
@@ -73,6 +75,6 @@ class Simulacao_Batalha:
                 exit()
                     
                     
-                self.f_fighters.enfileirar(fighter)
+            self.f_fighters.enfileirar(fighter)
                 
             
