@@ -24,14 +24,14 @@ class Death_Star:
         r = []
         
         for i in range(self.canhoes):
-            if random.uninform(0,1) <= self.precisao:
-                r.append(seld.ataque)
+            if random.uniform(0,1) <= self.precisao:
+                r.append(self.ataque)
             else:
                 r.append(0)
         
         return r
     
-    def sobreviveu_danos(self, disparos):
+    def sobreviveu_danos(self, disparo):
         self.defesa -= disparo
         
         return self.defesa > 0

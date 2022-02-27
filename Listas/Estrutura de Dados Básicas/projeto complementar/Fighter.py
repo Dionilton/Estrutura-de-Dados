@@ -29,7 +29,7 @@ class Fighter:
     
     def disparar(self):
         
-        if rondam.uniform(0, 1) <= self.precisao:
+        if random.uniform(0, 1) <= self.precisao:
             return self.ataque
         
         return 0
