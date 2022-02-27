@@ -72,6 +72,7 @@ class Simulacao_Batalha:
                     print(f'{self.death_star}')
                     exit()
                     
+                    
                 self.f_fighters.enfileirar(fighter)
                 
             
