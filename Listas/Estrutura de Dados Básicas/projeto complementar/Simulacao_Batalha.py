@@ -14,7 +14,7 @@ class Simulacao_Batalha:
         
     def novo_fighter(self):
         numero = round(random.uniform(0, 1), 2)
-        return nemro <- self.confianca
+        return numero <- self.confianca
     
     def get_novo_id(self):
         seld.id_geral += 1

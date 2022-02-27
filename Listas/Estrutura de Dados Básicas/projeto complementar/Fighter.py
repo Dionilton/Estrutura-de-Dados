@@ -41,5 +41,3 @@ class Fighter:
             
         return self.defesa > 0
         
-f = Fighter(1)
-print(f)
