@@ -86,12 +86,18 @@ while True:
         break
     
     elif comando[0] == 'add':
+        fila = Queue()
         for i in range(int(comando[1])):
             processo = input().split()
-            processos.enqueue(processo)
+            fila.enqueue(processo)
+            
+        processos.enqueue(fila)
             
     elif comando[0] == 'process':
-        processo = processos.dequeue()
+        fila_processos = processos.dequeue()
+        processo = fila_processos.dequeue()
+        if fila_processos.size() != 0:
+            processos.enqueue(fila_processos)
         
         if processo[0] == 'crypto':
             print(crypto(processo[1]))
