@@ -41,6 +41,14 @@ class Stack:
 
 
 #Funções
+
+def bubbleSort(alist): #implementar bubblesort
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
     
 def crypto(s):
     #implementação de crypto (médio)
@@ -70,8 +78,16 @@ def deYodafy(w):
     return saida
     
 def merge(i):
-    #implementação de merge (médio)
-    return i
+    for ind in range(len(i)):
+        i[ind] = i[ind].replace('[','')
+        i[ind] = i[ind].replace(']','')
+        i[ind] = i[ind].replace(',','')
+        i[ind] = int(i[ind])
+    bubbleSort(i)
+    
+    saida = f'[{i[0]}, {i[3]}] [{i[4]}, {i[7]}]'
+        
+    return saida
     
 #Programa principal
     
@@ -81,8 +97,11 @@ while True:
     comando = input().split()
     
     if comando[0] == 'halt':
-        n = processos.size()
-        print(f'{n} processo(s) e {n} comando(s) órfão(s).')
+        n_processos = processos.size()
+        n_comandos = 0
+        for i in processos.items:
+            n_comandos += i.size()
+        print(f'{n_processos} processo(s) e {n_comandos} comando(s) órfão(s).')
         break
     
     elif comando[0] == 'add':
