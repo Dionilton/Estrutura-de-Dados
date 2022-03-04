@@ -21,13 +21,16 @@ class Queue:
 #Funções
     
 def crypto(s):
-    #implementação de crypto
+    #implementação de crypto (médio)
+    return s
 
 def deYodafy(w):
-    #implementção de deYodafy
+    #implementção de deYodafy (fácil)
+    return w
     
 def merge(i):
-    #implementação de merge
+    #implementação de merge (médio)
+    return i
     
 #Programa principal
     
@@ -36,11 +39,13 @@ processos = Queue()
 while True:
     comando = input().split()
     
-    if commando[0] == 'halt':
+    if comando[0] == 'halt':
+        n = processos.size()
+        print(f'{n} processo(s) e {n} comando(s) órfão(s).')
         break
     
     elif comando[0] == 'add':
-        for in range(int(comando[1])):
+        for i in range(int(comando[1])):
             processo = input().split()
             processos.enqueue(processo)
             
@@ -55,6 +60,4 @@ while True:
             
         elif processo[0] == 'merge':
             print(merge(processo[1: ]))
-    
-    
-    
+            
