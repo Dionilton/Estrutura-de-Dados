@@ -47,8 +47,27 @@ def crypto(s):
     return s
 
 def deYodafy(w):
-    #implementção de deYodafy (fácil)
-    return w
+    pilha = Stack()
+    saida = ''
+    chars = '.?!'
+    char = ''
+    
+    if w[len(w) - 1][len(w[len(w) - 1]) - 1] in chars:
+        char += w[len(w) - 1][len(w[len(w) - 1]) - 1]
+        w[len(w) - 1] = w[len(w) - 1][:len(w[len(w) - 1]) -1]
+    
+    for i in w:
+        pilha.push(i)
+    for i in range(len(w)):
+        if i == 0:
+            saida += pilha.pop()
+        else:
+            saida += ' ' + pilha.pop()
+            
+    if len(char) != 0:
+        saida += char
+        
+    return saida
     
 def merge(i):
     #implementação de merge (médio)
