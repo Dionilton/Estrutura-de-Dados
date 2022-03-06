@@ -63,11 +63,20 @@ class Node:
         
 class UnorderedList:
     
-    def __ini__(self):
+    def __init__(self):
         self.head = None
         
+    def __str__(self):
+        tmp = self.head
+        lstr = ''
+        while tmp != None:
+            lstr += str(tmp.data)
+            tmp = tmp.getNext()
+        
+        return lstr
+        
     def isEmpty(self):
-        return self.head = None
+        return self.head == None
     
     def add(self, item):
         temp = Node(item)
@@ -152,17 +161,52 @@ class UnorderedList:
 
 #Funções
 
-def bubbleSort(alist): #implementar bubblesort
-    for passnum in range(len(alist)-1,0,-1):
-        for i in range(passnum):
-            if alist[i]>alist[i+1]:
-                temp = alist[i]
-                alist[i] = alist[i+1]
-                alist[i+1] = temp
+def sort(lista):
+    for i in range(len(lista) - 1):
+        for j in range(len(lista) - 1 - i):
+            if lista[j] > lista[j + 1]:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
     
 def crypto(s):
-    #implementação de crypto (médio)
-    return s
+    alg = [9,8,7,6,5,4,3,2,1]
+    lista = UnorderedList()
+    plus = False
+    for i in range(len(s)):
+        if i == 0:
+            if s[i] == '+':
+                lista.append(alg.pop())
+                lista.append(alg.pop())
+                last_plus = lista.head.getNext()
+                plus = True
+            elif s[i] == '-':
+                lista.add(alg.pop())
+                lista.add(alg.pop())
+        else:
+            if s[i] == '+':
+                lista.append(alg.pop())
+                last_plus = lista.head
+                for j in range(lista.size() - 1):
+                    last_plus = last_plus.getNext()
+                plus = True
+            elif s[i] == '-' and plus:
+                current = lista.head
+                previous = None
+                found = False
+                while not found:
+                    if current.getData() == last_plus.getData():
+                        found = True
+                    else:
+                        previous = current
+                        current = current.getNext()
+                        
+                temp = Node(alg.pop())
+                temp.setNext(current)
+                previous.setNext(temp)
+                last_plus = previous.getNext()
+            elif s[i] == '-' and not plus:
+                lista.add(alg.pop())
+            
+    return lista
 
 def deYodafy(w):
     pilha = Stack()
@@ -193,7 +237,7 @@ def merge(i):
         i[ind] = i[ind].replace(']','')
         i[ind] = i[ind].replace(',','')
         i[ind] = int(i[ind])
-    bubbleSort(i)
+    sort(i)
     
     saida = f'[{i[0]}, {i[3]}] [{i[4]}, {i[7]}]'
         
