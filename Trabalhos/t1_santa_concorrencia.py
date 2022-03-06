@@ -267,19 +267,22 @@ while True:
         processos.enqueue(fila)
             
     elif comando[0] == 'process':
-        fila_processos = processos.dequeue()
-        processo = fila_processos.dequeue()
-        if fila_processos.size() != 0:
-            processos.enqueue(fila_processos)
-        
-        if processo[0] == 'crypto':
-            print(crypto(processo[1]))
+        if processos.size() != 0:
+            fila_processos = processos.dequeue()
+            processo = fila_processos.dequeue()
+            if fila_processos.size() != 0:
+                processos.enqueue(fila_processos)
             
-        elif processo[0] == 'deYodafy':
-            print(deYodafy(processo[1: ]))
-            
-        elif processo[0] == 'merge':
-            print(merge(processo[1: ]))
+            if processo[0] == 'crypto':
+                print(crypto(processo[1]))
+                
+            elif processo[0] == 'deYodafy':
+                print(deYodafy(processo[1: ]))
+                
+            elif processo[0] == 'merge':
+                print(merge(processo[1: ]))
+        else:
+            continue
     
 # observações e casos de teste a serem resolvidos:
 
