@@ -280,4 +280,97 @@ while True:
             
         elif processo[0] == 'merge':
             print(merge(processo[1: ]))
+    
+# observações e casos de teste a serem resolvidos:
+
+"""
+Dos 13 casos de teste o atual código não passou em 3, nos quais a maioria é devido a alguma
+falha na implementação da função merge() que retorna valores divergentes do resultaddo esperado
+
+"""
+
+#casos de testes falhos:
+
+# Caso 01:
+
+"""
+
+Entrada:
+
+process
+halt
+
+Resultado esperado:
+
+0 processo(s) e 0 comando(s) órfão(s).
+
+Resultado do meu código:
+
+*** Answer Error! ***
+Line: 15
+IndexError: pop from empty list
+
+"""
+
+# Caso 02:
+
+"""
+
+Entrada:
+
+add 1
+merge [-5, 5] [13, 42] [10, 100]
+process
+add 2
+merge [1, 2] [2, 3] [3, 4] [4, 5]
+merge [4, 5] [2, 3] [1, 2] [3, 4]
+process
+halt
+
+Resultado esperado:
+
+[-5, 5] [10, 100]
+[1, 5]
+1 processo(s) e 1 comando(s) órfão(s).
+
+Resultado do meu código:
+
+*** Answer Error! ***
+Line: 242
+IndexError: list index out of range
+
+"""
+
+# Caso 03:
+
+"""
+
+Entrada:
+
+add 3
+crypto +--+
+deYodafy nossa bossa?
+merge [1, 2] [2, 2] [2, 3] [3, 4]
+process
+process
+process
+halt
+
+Resultado esperado:
+
+14325
+bossa nossa?
+[1, 4]
+0 processo(s) e 0 comando(s) órfão(s).
+
+Resultado do meu código:
+
+14325
+bossa nossa?
+[1, 2] [2, 4]
+0 processo(s) e 0 comando(s) órfão(s).
+
+"""
+
+
             
