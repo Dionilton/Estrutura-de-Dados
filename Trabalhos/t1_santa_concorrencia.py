@@ -69,7 +69,86 @@ class UnorderedList:
     def isEmpty(self):
         return self.head = None
     
+    def add(self, item):
+        temp = Node(item)
+        temp.setNext(self.head)
+        self.head = temp
+        
+    def size(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.getNext()
+        
+        return count
     
+    def serach(self, item):
+        current = self.head
+        found = False
+        while current != None and not found:
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+                
+        return found
+    
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+        
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+             
+    def append(self, item):
+        if self.size() == 0:
+            self.add(item)
+        else:
+            temp = Node(item)
+            current = self.head
+            previous = None
+            found = False
+            while not found:
+                if current == None:
+                    previous.setNext(temp)
+                    found = True
+                else:
+                    previous = current
+                    current = current.getNext()
+                    
+    def index(self, item):
+        count = 0
+        current = self.head
+        while True:
+            if current.getData() == item:
+                break
+            else:
+                current = current.getNext()
+                count += 1
+                
+        return count
+    
+    def pop(self):
+        if self.size == 1:
+            ret = self.head.getData()
+            self.head = None
+        else:
+            current = self.head
+            for i in range(self.size() - 2):
+                current = current.getNext()
+            ret = current.getNext().getData()
+            current.setNext(None)
+            
 
 #Funções
 
