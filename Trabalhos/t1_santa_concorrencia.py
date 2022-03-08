@@ -330,3 +330,4 @@ while True:
                 print(merge(processo[1: ]))
         else:
             continue
+        
