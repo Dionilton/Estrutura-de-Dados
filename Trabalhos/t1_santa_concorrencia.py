@@ -70,8 +70,9 @@ class UnorderedList:
         tmp = self.head
         lstr = ''
         while tmp != None:
-            lstr += str(tmp.data)
+            lstr += ' ' + str(tmp.data)
             tmp = tmp.getNext()
+        lstr = lstr[1:]
         
         return lstr
         
@@ -164,7 +165,7 @@ class UnorderedList:
 def sort(lista):
     for i in range(len(lista) - 1):
         for j in range(len(lista) - 1 - i):
-            if lista[j] > lista[j + 1]:
+            if lista[j][0] > lista[j + 1][0]:
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
     
 def crypto(s):
@@ -205,8 +206,14 @@ def crypto(s):
                 last_plus = previous.getNext()
             elif s[i] == '-' and not plus:
                 lista.add(alg.pop())
+    
+    ret = ''
+    current = lista.head
+    for i in range(lista.size()):
+        ret += str(current.getData())
+        current = current.getNext()
             
-    return lista
+    return ret
 
 def deYodafy(w):
     pilha = Stack()
@@ -230,6 +237,7 @@ def deYodafy(w):
         saida += char
         
     return saida
+
     
 def merge(i):
     for ind in range(len(i)):
@@ -237,11 +245,50 @@ def merge(i):
         i[ind] = i[ind].replace(']','')
         i[ind] = i[ind].replace(',','')
         i[ind] = int(i[ind])
-    sort(i)
-    
-    saida = f'[{i[0]}, {i[3]}] [{i[4]}, {i[7]}]'
         
-    return saida
+    lista_i = []
+        
+    for j in range(int(len(i) / 2)):
+        pair = [i[j+j], i[j+j+1]]
+        lista_i.append(pair)
+    
+    sort(lista_i)
+    
+    lista_d = UnorderedList()
+    
+    for j in range(len(lista_i)):
+        lista_d.append(lista_i[j])
+        
+    current = lista_d.head.getNext()
+    previous = lista_d.head
+    
+    change = False
+    
+    while current != None:
+        if current.getData()[1] <= previous.getData()[1]:
+            previous.setNext(current.getNext())
+            current = previous.getNext()
+            
+        elif current.getData()[0] <= previous.getData()[1]:
+            controle = False
+            temp = [previous.getData()[0], current.getData()[1]]
+            if current.getNext() == None:
+                controle = True
+            lista_d.remove(previous.getData())
+            lista_d.remove(current.getData())
+            if controle:
+                lista_d.append(temp)
+            else:
+                lista_d.add(temp)
+            previous = lista_d.head
+            currunt = previous.getNext()
+            
+        else:
+            previous = current
+            current = current.getNext()
+        
+        
+    return lista_d
     
 #Programa principal
     
@@ -283,97 +330,3 @@ while True:
                 print(merge(processo[1: ]))
         else:
             continue
-    
-# observações e casos de teste a serem resolvidos:
-
-"""
-Dos 13 casos de teste o atual código não passou em 3, nos quais a maioria é devido a alguma
-falha na implementação da função merge() que retorna valores divergentes do resultaddo esperado
-
-"""
-
-#casos de testes falhos:
-
-# Caso 01:
-
-"""
-
-Entrada:
-
-process
-halt
-
-Resultado esperado:
-
-0 processo(s) e 0 comando(s) órfão(s).
-
-Resultado do meu código:
-
-*** Answer Error! ***
-Line: 15
-IndexError: pop from empty list
-
-"""
-
-# Caso 02:
-
-"""
-
-Entrada:
-
-add 1
-merge [-5, 5] [13, 42] [10, 100]
-process
-add 2
-merge [1, 2] [2, 3] [3, 4] [4, 5]
-merge [4, 5] [2, 3] [1, 2] [3, 4]
-process
-halt
-
-Resultado esperado:
-
-[-5, 5] [10, 100]
-[1, 5]
-1 processo(s) e 1 comando(s) órfão(s).
-
-Resultado do meu código:
-
-*** Answer Error! ***
-Line: 242
-IndexError: list index out of range
-
-"""
-
-# Caso 03:
-
-"""
-
-Entrada:
-
-add 3
-crypto +--+
-deYodafy nossa bossa?
-merge [1, 2] [2, 2] [2, 3] [3, 4]
-process
-process
-process
-halt
-
-Resultado esperado:
-
-14325
-bossa nossa?
-[1, 4]
-0 processo(s) e 0 comando(s) órfão(s).
-
-Resultado do meu código:
-
-14325
-bossa nossa?
-[1, 2] [2, 4]
-0 processo(s) e 0 comando(s) órfão(s).
-
-"""
-
-
-            
