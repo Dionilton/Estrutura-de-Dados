@@ -1,5 +1,6 @@
 count = 0
 def fib(n):
+    global count
     count += 1
     if n == 0:
         return 0
@@ -8,7 +9,6 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 
-
 n = int(input())
-print(fib(n))
-print(count)
+fib_n = fib(n)
+print(f'Fib({n}) = {fib_n} ({count} chamadas)')
