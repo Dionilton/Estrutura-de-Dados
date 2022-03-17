@@ -11,7 +11,7 @@ def selection_sort(lista):
         
         
 def selection_sort2(lista):
-    #implementar a selection_sort2
+    #implementar a selection_sort_2
             
 
 lista = [9, 6, 3, 5, 1, 2, 0, 4, 7, 8]
