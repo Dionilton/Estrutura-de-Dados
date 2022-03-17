@@ -9,13 +9,16 @@ def selection_sort(lista):
                 lista[i], lista[j] = menor, lista[i]
         print(f'Passo {i + 1}, {lista}')
         
+        
+def selection_sort2(lista):
+    #implementar a selection_sort2
             
 
 lista = [9, 6, 3, 5, 1, 2, 0, 4, 7, 8]
 selection_sort(lista)
 
 
-#Melhorar implementação afim de se obter os seguinte passo na ordenação:
+#Melhorar implementação afim de se obter os seguinte passos na ordenação:
 
 """
 Passo 0, [9, 6, 3, 5, 1, 2, 0, 4, 7, 8]
