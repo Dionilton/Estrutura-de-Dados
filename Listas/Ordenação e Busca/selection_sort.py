@@ -11,11 +11,17 @@ def selection_sort(lista):
         
         
 def selection_sort2(lista):
-    #implementar a selection_sort_2
+    for i in range(len(lista) - 1):
+        menor = i
+        for j in range(i, len(lista)):
+            if lista[menor] > lista[j]:
+                menor = j
+        lista[i], lista[menor] = lista[menor], lista[i]
             
 
 lista = [9, 6, 3, 5, 1, 2, 0, 4, 7, 8]
-selection_sort(lista)
+selection_sort2(lista)
+print(lista)
 
 
 #Melhorar implementação afim de se obter os seguinte passos na ordenação:
@@ -35,3 +41,4 @@ Passo 10, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 """
 
+ 
