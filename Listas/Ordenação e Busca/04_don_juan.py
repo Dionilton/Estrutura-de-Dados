@@ -11,7 +11,17 @@ for i in range(1, n):
         position -= 1
         
     lista[position] = current
-    
-print(lista)
 
-#fazer um while para fazer pop dos 2 últimos itens da lista caso o len(item) forem iguais
+if len(lista) >= 2 and len(lista[0]) == len(lista[len(lista) - 1]):
+    print('Que mala suerte!')
+    
+else:
+    ind = len(lista) - 1
+    while len(lista[ind]) == len(lista[ind - 1]):
+        if len(lista) == 1:
+            break
+        lista.pop()
+        lista.pop()
+        ind -= 2
+        
+    print(lista[len(lista) - 1])
