@@ -32,3 +32,30 @@ class Node:
         self.rigth = newrigth
     def setLeft(self, newleft):
         self.left = newleft
+        
+        
+# 3 Stps
+"""
+metod.: < ^ >
+
+//most imp
+1 - 1 ^ 3 (2m)
+2 - 3 ^ 7 (2m)
+3 - 7.7 ... (quit all end m) / 3m -> 90% all dbt (3m)
+//most imp
+
+plus stps - (nov & dec: 8 ^ 25)
+end dec: QUIT ALL
+
+2k23: nw ag
+
+1 - checkpoint ^ 25 (1m)
+2 - 25.+4 (2m)
+
+end 1° tri 2k23 +50 in M.Ac.
+
+HW: fz plani do plan
+    fz plani de priridade
+    Sistematizar plan, polir e exe.
+
+"""
