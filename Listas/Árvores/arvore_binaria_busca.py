@@ -52,7 +52,7 @@ end dec: QUIT ALL
 1 - checkpoint ^ 25 (1m)
 2 - 25.+4 (2m)
 
-end 1° tri 2k23 +50 in M.Ac.
+end 1° tri 2k23 +50 in M.Ac. (1. MGL)(2.CH)
 
 HW: fz plani do plan
     fz plani de priridade
