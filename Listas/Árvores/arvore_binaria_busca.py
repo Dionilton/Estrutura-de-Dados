@@ -59,3 +59,13 @@ HW: fz plani do plan
     Sistematizar plan, polir e exe.
 
 """
+
+#Videos/estudos: Trvessias
+
+"""
+
+Pré-Ordem: https://youtu.be/ahQ2KpC3ba4
+Em-Ordem: https://youtu.be/Yy0oyWx55yw
+Pós-Ordem: https://youtu.be/ELguSB4T2JY
+
+"""
