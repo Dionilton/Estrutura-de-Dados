@@ -67,5 +67,6 @@ HW: fz plani do plan
 Pré-Ordem: https://youtu.be/ahQ2KpC3ba4
 Em-Ordem: https://youtu.be/Yy0oyWx55yw
 Pós-Ordem: https://youtu.be/ELguSB4T2JY
+Arvore parentes: https://dcm.ffclrp.usp.br/~augusto/teaching/aedi/AED-I-Arvores.pdf
 
 """
