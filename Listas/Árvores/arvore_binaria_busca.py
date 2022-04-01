@@ -60,7 +60,7 @@ HW: fz plani do plan
 
 """
 
-#Videos/estudos: Trvessias
+#Videos/estudos: Travessias
 
 """
 
