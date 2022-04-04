@@ -68,6 +68,8 @@ Pré-Ordem: https://youtu.be/ahQ2KpC3ba4
 Em-Ordem: https://youtu.be/Yy0oyWx55yw
 Pós-Ordem: https://youtu.be/ELguSB4T2JY
 Alg Remoição de Nós: https://youtu.be/M2Hb3O9KJBM
+Balanceamento/Desbalanceamento, Algoritmos de Rotação de Árvore AVL: https://youtu.be/W16tC-xMx-M
+Algoritmo DSW: https://youtu.be/k3yt7VUn0eY
 ***Videos***
 Arvore parentes: https://dcm.ffclrp.usp.br/~augusto/teaching/aedi/AED-I-Arvores.pdf
 (A(B(D()(G()()))())(C(E(H()())(I()()))(F()(J)))) -> Representar em grafo
