@@ -5,13 +5,13 @@ class Vertex:
         self.connectedTo = {}
         
     def addNeighbor(self, nbr, weigth = 0):
-        self.connectedTo[nbr] = wigth
+        self.connectedTo[nbr] = weigth
         
     def __str__(self):
         return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
     
     def getConnections(self):
-        return self.connectionTo.keys()
+        return self.connectedTo.keys()
     
     def getId(self):
         return self.id
@@ -27,8 +27,8 @@ class Graph:
         self.numVertices = 0
         
     def addVertex(self, key):
-        self.numVertices += 1
-        newVertice = Vertex(key)
+        self.numVertices = self.numVertices + 1
+        newVertex = Vertex(key)
         self.vertList[key] = newVertex
         return newVertex
     
@@ -53,4 +53,29 @@ class Graph:
     
     def __iter__(self):
         return iter(self.vertList.values())
-        
+          
+#QA Test:
+    
+g = Graph()
+
+for i in range(6):
+    g.addVertex(i)
+
+print(g.vertList)
+
+g.addEdge(0,1,5)
+g.addEdge(0,5,2)
+g.addEdge(1,2,4)
+g.addEdge(2,3,9)
+g.addEdge(3,4,7)
+g.addEdge(3,5,3)
+g.addEdge(4,0,1)
+g.addEdge(5,4,8)
+g.addEdge(5,2,1)
+
+for i in g:
+    print(i)
+    
+for i in g:
+    for j in i.getConnections():
+        print(f'( {i.getId()}, {j.getId()} )')
