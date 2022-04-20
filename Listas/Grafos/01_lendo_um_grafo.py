@@ -51,5 +51,8 @@ class Graph:
         
     def removeEdge(self, f, t):
         self.vertexList[f].removeNeigthbor(t)
-    
+        
+n = int(input())
+for i in range n:
+    comando = input().split()
         
