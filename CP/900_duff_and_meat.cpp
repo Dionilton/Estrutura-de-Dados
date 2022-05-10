@@ -4,26 +4,23 @@ using namespace std;
 int main(){
 
     int total = 0;
-    int min = 101;
+    int min;
     int ind;
     int n;
     cin >> n;
     int vec[n][2];
     for(int i=0; i<n; i++){
         cin >> vec[i][0] >> vec[i][1];
-        if(vec[i][1] < min){
-            min = vec[i][1];
-            ind = i;
-        }
     }
 
+    min = vec[0][1];
+
     for(int i=0; i<n; i++){
-        if(i <= ind){
-            total += vec[i][0] * vec[i][1];
+        if(vec[i][1] < min){
+            min = vec[i][1];
         }
-        else{
-            total += vec[i][0] * vec[ind][1];
-        }
+        total += vec[i][0] * min;
+
     }
 
     cout << total << endl;
