@@ -24,24 +24,32 @@ int main(){
                 }
             } 
         }
-        cout << "sai do sort" << endl;
+
         float vec_f[n];
-        for(int j=0; j<n; j++){
-            cout << "to no primeiro for" << endl;
-            vec_f[j] = vec[j]/j+1;
+        for(int j=0; j <n; j++){
+            vec_f[j] = (float((vec[j])))/(float((j+1)));
         }
 
+        float sum = 0;
         for(int j=0; j<n; j++){
-            cout << "to no ultimo for" << endl;
-            cout << vec_f[j] << " ";
+            for(int k=j; k<n; k++){
+                sum += vec_f[k];
+            }
         }
 
+        cout << "sum = " << sum << endl;
+        cout << "m = " << m << endl;
 
-        /*
-        for(int j=0; j<n; j++){
-            cout << vec[j] << " ";
+        
+
+        if(sum == m){
+            cout << "YES" << endl;
         }
-        */
+        else{
+            cout << "NOT" << endl;
+        }
+
+        
     }
 
     return 0;
