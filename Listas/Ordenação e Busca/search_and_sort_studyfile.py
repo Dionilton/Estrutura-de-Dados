@@ -14,6 +14,21 @@ def sequentialSearch(lista, item):
             index += 1
             
     return found
+
+def orderedSequentialSearch(lista, item):
+    index = 0
+    found = False
+    stop = False
+    
+    while index < len(lista) and not found and not stop:
+        if lista[index] == item:
+            found = True
+        else:
+            if lista[index] > item:
+                stop = True
+            else:
+                index +=1
+    return found
     
 #Binary Search
 
@@ -44,7 +59,7 @@ def sequentialSearch(lista, item):
 
 #Space to tests cases:
 
-testlist = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-print(sequentialSearch(testlist, 3))
-print(sequentialSearch(testlist, 13))
+testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+print(orderedSequentialSearch(testlist, 3))
+print(orderedSequentialSearch(testlist, 13))
 
