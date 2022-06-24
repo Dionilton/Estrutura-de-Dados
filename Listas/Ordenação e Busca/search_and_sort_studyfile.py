@@ -32,6 +32,23 @@ def orderedSequentialSearch(lista, item):
     
 #Binary Search
 
+def binarySearch(lista, item):
+    found = False
+    first = 0
+    last = len(lista) - 1
+    
+    while first <= last and not found:
+        mid = (first + last) // 2
+        
+        if lista[mid] == item:
+            found = True
+        else:
+            if lista[mid] < item:
+                first = mid + 1
+            else:
+                last = mid - 1
+    
+    return found
 
 #SORT:
 
@@ -59,7 +76,7 @@ def orderedSequentialSearch(lista, item):
 
 #Space to tests cases:
 
-testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(orderedSequentialSearch(testlist, 3))
-print(orderedSequentialSearch(testlist, 13))
+testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+print(binarySearch(testlist, 3))
+print(binarySearch(testlist, 13))
 
