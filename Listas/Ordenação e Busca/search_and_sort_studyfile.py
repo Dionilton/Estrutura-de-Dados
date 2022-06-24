@@ -50,6 +50,19 @@ def binarySearch(lista, item):
     
     return found
 
+def recursiveBinarySearch(lista, item):
+    if len(lista) == 0:
+        return False
+    else:
+        mid = len(lista) // 2
+        if lista[mid] == item:
+            return True
+        else:
+            if lista[mid] < item:
+                return recursiveBinarySearch(lista[mid+1:], item)
+            else:
+                return recursiveBinarySearch(lista[:mid], item)
+
 #SORT:
 
 
@@ -76,7 +89,7 @@ def binarySearch(lista, item):
 
 #Space to tests cases:
 
-testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
-print(binarySearch(testlist, 3))
-print(binarySearch(testlist, 13))
+testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+print(recursiveBinarySearch(testlist, 3))
+print(recursiveBinarySearch(testlist, 13))
 
