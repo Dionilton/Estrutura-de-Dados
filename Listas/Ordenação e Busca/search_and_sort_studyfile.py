@@ -63,6 +63,10 @@ def recursiveBinarySearch(lista, item):
             else:
                 return recursiveBinarySearch(lista[:mid], item)
 
+#Hashing:
+
+#6.5.1 Hash Functions
+
 #SORT:
 
 
@@ -82,9 +86,6 @@ def recursiveBinarySearch(lista, item):
 
 
 #Quick Sort
-
-
-#HASHING:
 
 
 #Space to tests cases:
