@@ -5,8 +5,8 @@ int main(){
 
     int x;
     cin >> x;
-    int n,m;
     for(int i = 0; i<x; i++){
+        int n,m;
         cin >> n >> m;
         int vec[n];
         for(int j = 0; j<n; j++){
@@ -37,16 +37,11 @@ int main(){
             }
         }
 
-        cout << "sum = " << sum << endl;
-        cout << "m = " << m << endl;
-
-        
-
         if(sum == m){
-            cout << "YES" << endl;
+            printf("YES\n");
         }
         else{
-            cout << "NOT" << endl;
+            printf("NO\n");
         }
 
         
