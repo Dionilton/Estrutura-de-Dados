@@ -10,16 +10,10 @@
 #SORT:
 
 
-#Selection Sort
-
-
 #Bubble Sort
 
 
-#Merge Sort
-
-
-#Quick Sort
+#Selection Sort
 
 
 #Insertion Sort
@@ -28,4 +22,10 @@
 #Shell Sort
 
 
-#Hashing
+#Merge Sort
+
+
+#Quick Sort
+
+
+#HASHING:
