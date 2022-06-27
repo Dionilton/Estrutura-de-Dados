@@ -65,7 +65,12 @@ def recursiveBinarySearch(lista, item):
 
 #Hashing:
 
-#6.5.1 Hash Functions
+def hash(xstring, tablesize):
+    sum = 0
+    for pos in range(len(xstring)):
+        sum = sum + ord(xstring[pos])
+    
+    return sum%tablesize
 
 #SORT:
 
