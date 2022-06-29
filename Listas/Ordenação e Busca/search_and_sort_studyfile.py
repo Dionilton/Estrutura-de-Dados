@@ -72,6 +72,8 @@ def hash(xstring, tablesize):
     
     return sum%tablesize
 
+#checkpoint: Hashing Self Check
+
 #SORT:
 
 
@@ -99,4 +101,26 @@ testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42]
 print(recursiveBinarySearch(testlist, 3))
 print(recursiveBinarySearch(testlist, 13))
 
+#Temp Note:
 
+'''
+900:               Ind:
+    250(n.n.)          0
+    150(TdG)           1
+    150(V-P-F)         2
+    50(Fn.)            3
+    300(m.f.):         4
+        200(hlp-m)
+        100(RE)
+
+'''
+
+lista = [250,150,150,50,300]
+total = 0
+
+for i in range(len(lista) - 1):
+    total += lista[i]
+
+print(f'Total: {total}')
+
+#Temp Note:
