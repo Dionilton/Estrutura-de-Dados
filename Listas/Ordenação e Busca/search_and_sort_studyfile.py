@@ -107,8 +107,11 @@ print(recursiveBinarySearch(testlist, 13))
 900:               Ind:
     250(n.n.)          0
     150(TdG)           1
-    150(V-P-F)         2
-    50(Fn.)            3
+    150(V-P-F)         2 in progress:
+        P: OK
+        F: in progress
+        V: in progress
+    50(Fn.)            3 ok
     300(m.f.):         4
         200(hlp-m)
         100(RE)
