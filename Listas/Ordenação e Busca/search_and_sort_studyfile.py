@@ -109,7 +109,7 @@ print(recursiveBinarySearch(testlist, 13))
     150(TdG)           1
     150(V-P-F)         2 in progress:
         P: OK
-        F: in progress
+        F: OK
         V: in progress
     50(Fn.)            3 ok
     300(m.f.):         4
