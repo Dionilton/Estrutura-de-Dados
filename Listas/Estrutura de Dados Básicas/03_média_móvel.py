@@ -31,3 +31,17 @@ for i in range(len(dados)):
         soma += dados[i]
         d.addFront(dados[i])
         print(int(soma/p))
+        
+        
+'''
+
+rbr >>
+
+CG: 3(LP, RLM) - 1(RID, LO) 2(MP)
+    x(UTAC, GCC, INO) >> last 2M
+    
+CE: 3(CB, PE) - 2(DC, CSI)
+    X(QAD, BED) >> last 2M
+
+
+'''
